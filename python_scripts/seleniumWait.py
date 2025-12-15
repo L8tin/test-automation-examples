@@ -1,4 +1,4 @@
-from common.common_imports import *
+from .common_imports import *
 
 ELEMENT_TIMEOUT = 180
 

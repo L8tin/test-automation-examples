@@ -1,12 +1,12 @@
 from selenium.webdriver.common.by import By
 
-# Cats of West Central Launch Page Index
-CATS_Home_Link = (By.XPRTH, "//a[]")
 # Menus to Test
-CATS_Menu1 = (By.XPRTH, "//a[]")
-CATS_Menu2 = (By.XPRTH, "//a[]")
-CATS_Menu3 = (By.XPRTH, "//a[]")
-CATS_Menu4 = (By.XPRTH, "//a[]")
+CATS_Adoption_Tab = (By.XPATH, "//label[@for='tab1']")
+CATS_Donate_Tab = (By.XPATH, "//label[@for='tab2']")
+CATS_Forms_Tab = (By.XPATH, "//label[@for='tab4']")
+CATS_Free_Insurance_Tab = (By.XPATH, "//label[@for='tab5']")
+CATS_Mission_Contact_Tab = (By.XPATH, "//label[@for='tab6']")
+
 
 
 

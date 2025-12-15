@@ -4,13 +4,8 @@ name: Test Automation Examples
 on: [push, pull_request]
 
 env:
-  ENVIRONMENT: "staging"
-  DB_HOST: "localhost"
-  DB_NAME: "test_db"
-  DB_USER: "root"
-  API_URL: "https://api.example.com"
-  UI_URL: "https://www.catsofwc.com"
-
+  UI_ENV: prod
+  UI_URL: com
 jobs:
 # Pytest Selenium Testsing with Python Keywords
   ui-testing:
@@ -22,13 +17,14 @@ jobs:
       - name: Run Linux install script
         run: |
           echo "--- Initiate Linux Install Script ---"
-          chmod +x linux_installs.sh
-          ./linux_installs.sh
-
+          pwd
+          ls -la
+          chmod +x pipeline_scripts/linux_installs.sh
+          ./pipeline_scripts/linux_installs.sh
       - name: Trigger Pytest Selenium
         run: |
           mkdir test_results
-          pytest ui-tests/test_main_menu.py --junitxml=test_results/results.xml
+          pytest ui_tests/test_ui_main_menu_functions.py --junitxml=test_results/results.xml
           ls -la test_results
         continue-on-error: true
 
@@ -38,39 +34,8 @@ jobs:
           name: ui-test-results
           path: ./test_results/
 
-# Python Requests API Testsing with Robot Framework Keywords & Reports
-  # api-tests:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: pytest api-tests/pytest_requests
-
-
-  # db-tests:
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-  #     DB_USER: root
-  #     DB_HOST: localhost
-  #   steps:
-  #     - name: Checkout repo
-  #       uses: actions/checkout@v4
-
-  #     - name: Run Linux install script
-  #       run: |
-  #         chmod +x linux_installs.sh
-  #         ./linux_installs.sh
-
-  #     - name: Run DB validation tests
-  #       run: |
-  #         mkdir -p db-results
-  #         pytest data-tests/db_validation --junitxml=db-results/results.xml
-  #         ls -la db-results
-
-  #     - name: Upload DB test results
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: db-test-results
-  #         path: ./db-results/
+          
+#     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
 # For passwords, API keys, or anything sensitive:
 # Go to your GitHub repo → Settings → Secrets → Actions

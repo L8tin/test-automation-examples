@@ -2,9 +2,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
-*.so
+ui_tests/__pycache__/
+test_results/__pycache__/
+python_scripts/__pycache__/
+pipeline_scripts/__pycache__/
+test_results/__pycache__/
+.github/workflows/test-automation.yml
 
 # Distribution / packaging
 .Python

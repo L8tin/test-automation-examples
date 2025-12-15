@@ -1,4 +1,4 @@
-from common.common_imports import *
+from python_scripts.common_imports import *
 
 BROWSER_WINDOW_SIZE = "1920, 1080"
 CATCHUP_TIME_SECONDS = 0.1
@@ -35,7 +35,7 @@ class seleniumBase:
 
         if self.driver is None:
             if self.browser == "Chrome":
-                self.driver = self._initialize_browser()
+                self.driver = self.initialize_browser()
                 self.driver.maximize_window()
                 print("[seleniumBase][initialize_webdriver] Chrome Browser Launch {self.browser} Webdriver Maximixe")
                 return self.driver

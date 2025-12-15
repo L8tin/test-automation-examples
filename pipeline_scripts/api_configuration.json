@@ -1,0 +1,18 @@
+{
+    "petstablished":   {
+        "api_endpoint" : "",
+        "api_type" : "",
+        "authentication": null, 
+        "http_method" : "get",
+        "endpoint_params" : {
+            "userID" : "",
+            "password" : ""
+        },
+        "headers" : {
+            "Authorization" : "Token",
+            "client" : "lookup",
+            "Content-Type" : "application/json"
+        },
+        "request_type" : "json"
+    }
+}

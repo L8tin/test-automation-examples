@@ -1,4 +1,4 @@
-from python_scripts import ui_test_data
+from pipeline_scripts import configuration
 from python_scripts import common_imports
 
 def test_answer(result, expected):
