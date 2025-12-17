@@ -1,6 +1,7 @@
 # Test Automation Examples
 
-This repository demonstrates practical test automation approaches commonly used in production systems. It is intended as a portfolio example for automation, CI/CD, and test strategy.
+This repository demonstrates practical test automation approaches commonly used in production systems.
+It is intended as a portfolio example for automation, CI/CD, and test strategy and resume / interview example.
 
 ---
 
@@ -11,19 +12,12 @@ The repository contains three layers of testing:
 1. **UI Automation**  
    - Implemented using **Selenium** and **Pytest**.  
    - Demonstrates Page Object Model (POM), headless execution, and explicit waits.  
-   - Example test: login flow or search functionality.
+   - Example test: login flow or search functionality
+   - Utilized in Sanity Check post deployment testing to ensure main page and menu links appear and are functional
 
-2. **API Testing**  
-   - Implemented using **ROBOT Framework** and **Requests**.  
-   - Demonstrates authentication, status and schema validation, and parameterized tests.
+Selenium functions are grouped into specialized python definitions to avoid flakiness and implement quality wait times.
 
-3. **Database Validation**  
-   - Implemented using Python and NoSQL database calls.  
-   - Demonstrates data seeding, query validation, and test cleanup.
-
-Each layer is executed independently in **CI/CD pipelines** to mirror real-world test strategies.
-
----
-
-## Project Structure
-
+Outcome:
+Produces screens shots of https://catsofwc.com (Cats of West Central Illinois Inc 501c3) menus after Selenium Clicks.
+PyTest Reports. Logging, UI Selenium Python commands. 
+Code Commits. 
