@@ -1,29 +1,31 @@
-# Test Automation Examples
-
-This repository demonstrates practical test automation approaches commonly used in production systems. It is intended as a portfolio example for automation, CI/CD, and test strategy.
+# Testing Automation Frameworks
+This repository is utilizied to UI and API test the CatsOfWC.org website. (Linux/Python/Flask/HTML5)
+This repository is utilizied to UI and API test the CatsOfWC.com website. (Linux/PHP/HTML5)
 
 ---
 
 ## Overview
-
 The repository contains three layers of testing:
 
+
 1. **UI Automation**  
+   - Implemented using **Playwright** and **Pytest**.  
    - Implemented using **Selenium** and **Pytest**.  
    - Demonstrates Page Object Model (POM), headless execution, and explicit waits.  
-   - Example test: login flow or search functionality.
+   - Example test: login flow and menu testings with screenshots.
 
 2. **API Testing**  
-   - Implemented using **ROBOT Framework** and **Requests**.  
+   - Implemented using **Pytest** and **Python Requests**.  
    - Demonstrates authentication, status and schema validation, and parameterized tests.
-
-3. **Database Validation**  
-   - Implemented using Python and NoSQL database calls.  
-   - Demonstrates data seeding, query validation, and test cleanup.
+   - Connects to API Petstablished to test Pet widgit display
 
 Each layer is executed independently in **CI/CD pipelines** to mirror real-world test strategies.
 
 ---
-
-## Project Structure
+## Project Overview ##
+TEST-AUTOMATION-EXAMPLES
+.github\workflows
+-Scripts
+-tests
+-test_results
 

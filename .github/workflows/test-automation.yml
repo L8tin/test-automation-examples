@@ -1,46 +1,40 @@
 name: Test Automation Examples
 
-# Use for Deployment Pipelines
 on: [push, pull_request]
 
 env:
   UI_ENV: prod
   UI_URL: com
+
 jobs:
-# Pytest Selenium Testsing with Python Keywords
   ui-testing:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Run Linux install script
+      - name: Install dependencies
         run: |
-          echo "--- Initiate Linux Install Script ---"
-          pwd
-          ls -la
-          chmod +x pipeline_scripts/linux_installs.sh
-          ./pipeline_scripts/linux_installs.sh
-      - name: Trigger Pytest Selenium
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install --with-deps || true
+
+      - name: Run UI Tests (Selenium)
         run: |
-          mkdir test_results
-          pytest ui_tests/test_ui_main_menu_functions.py --junitxml=test_results/results.xml
-          ls -la test_results
+          mkdir -p test_results
+          pytest tests/ui/selenium \
+            -m "ui and selenium" \
+            --junitxml=test_results/ui_results.xml \
+            --json-report \
+            --json-report-file=test_results/ui_results.json
         continue-on-error: true
 
-      - name: Upload UI Pytest results
+      - name: Upload UI test results
         uses: actions/upload-artifact@v4
         with:
           name: ui-test-results
-          path: ./test_results/
+          path: test_results/
+
 
           
-#     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-
-# For passwords, API keys, or anything sensitive:
-# Go to your GitHub repo → Settings → Secrets → Actions
-# Add a secret (e.g., DB_PASSWORD)
-# import os
-# env = os.environ.get("ENVIRONMENT")
-# api_url = os.environ.get("API_URL")
-# db_host = os.environ.get("DB_HOST")
