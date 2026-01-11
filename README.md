@@ -14,7 +14,7 @@ The repository contains three layers of testing:
    - Demonstrates Page Object Model (POM), headless execution, and explicit waits.  
    - Example test: login flow and menu testings with screenshots.
 
-2. **API Testing**  
+2. **API Testing**  -Comming Soon! 
    - Implemented using **Pytest** and **Python Requests**.  
    - Demonstrates authentication, status and schema validation, and parameterized tests.
    - Connects to API Petstablished to test Pet widgit display
