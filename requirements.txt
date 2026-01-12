@@ -3,3 +3,5 @@ webdriver-manager==3.8.6
 pytest>=9.0.0
 pytz>=2025.1
 pytest-json-report
+playwright
+pytest-playwright

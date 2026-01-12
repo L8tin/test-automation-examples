@@ -5,12 +5,14 @@ echo "pipeline_scripts Initialized"
 echo    "[linux_installs.sh] - os-release version"
 cat /etc/os-release
 
+sudo apt-get update
+sudo apt-get install -y chromium-chromedriver
+
 pip install -r requirements.txt
 echo    "[linux_installs.sh] - pip list"
 pip list
 
-sudo apt-get update
-sudo apt-get install -y chromium-chromedriver
+playwright install --with-deps || true
 
 # Check versions
 chromium-browser --version

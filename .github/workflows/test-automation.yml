@@ -20,16 +20,27 @@ jobs:
           pip install -r requirements.txt
           playwright install --with-deps || true
 
-      - name: Run UI Tests (Selenium)
+      - name: Run Selenium Tests
         run: |
           mkdir -p test_results
           pytest tests/ui/selenium \
             -m "ui and selenium" \
-            --junitxml=test_results/ui_results.xml \
+            --junitxml=test_results/selenium_results.xml \
             --json-report \
-            --json-report-file=test_results/ui_results.json
+            --json-report-file=test_results/selenium_results.json
         continue-on-error: true
 
+      - name: Run Playwright Tests
+        run: |
+          mkdir -p test_results
+          pytest tests/ui/playwright \
+            -m "ui and playwright" \
+            --junitxml=test_results/playwright_results.xml \
+            --json-report \
+            --json-report-file=test_results/playwright_results.json
+        continue-on-error: true
+
+        
       - name: Upload UI test results
         uses: actions/upload-artifact@v4
         with:
